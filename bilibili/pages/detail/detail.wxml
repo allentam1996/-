@@ -1,0 +1,73 @@
+<view class="main">
+<!--头部  -->
+  <mytitle></mytitle>
+
+  <!--视频窗口  -->
+  <view class="video_info">
+    <video src="http://ykugc.cp31.ott.cibntv.net/6777813E926377164C06027BA/03002001005909998182E13AFE61125886FE0F-9B9B-ECC0-F9D2-DB1B16611D25.mp4?ccode=050F&duration=3314&expire=18000&psid=48fac1c6647586a97b95cddd092c5d44&ups_client_netip=db88de5a&ups_ts=1558670974&ups_userid=&utid=00HVFNxcIQACAduHg7qooqpN&vid=XMjc0MjY1Nzk0NA%3D%3D&vkey=A3bcd9ee7ca082904d6c441ca9281cbde&sp=&bc=2" controls></video>
+
+  <!--标题  -->
+  <view class="video_title">
+    <text> {{videoInfo.videoTitle}}</text>
+   <navigator class="down"><image src="../../icons/down.png"></image></navigator> 
+  </view>
+
+  <!--视频作者  -->
+  <view class="video_detail">
+    <text class="author">作者:{{videoInfo.author}}</text>
+    <text class="play_conut">{{videoInfo.playCount}}次观看</text>
+    <text class="comment_count">{{videoInfo.commentCount}}条弹幕</text>
+    <text class="date">{{videoInfo.date}}</text>
+  </view>
+
+
+<!--地址问题未解决.可以吧首页的地址放在这里,换一下  -->
+<!--推荐视频  -->
+<view class="othre_list">
+  <navigator  class="item_other" wx:for="{{othersList}}" wx:key="{{index}}">
+    <!--左边图片  -->
+    <view class="other_img_wrap">
+       <image src="{{item.imgSrc}}" mode='widthFix'></image>
+    </view>
+
+    <!--视频信息  -->
+    <view class="other_info">
+    <!--标题-->
+      <view class="other_title">{{item.title}}</view>
+
+    <!--播放量  -->
+      <view class="other_detail">
+        <text clss="play_count">{{item.playMsg}}次观看</text>
+        <text class="comment_count">{{item.commentCount}}条评论</text>
+      </view>
+    </view>
+  </navigator>
+</view>
+
+
+<!--评论部分  -->
+<view class="comment_wrap">
+  <view class="comment_title">
+    评论( {{commentData.commentIotalCount}} )
+  </view>
+  <view class="comment_list">
+    <view class="comment_item" wx:for="{{commentData.commentList}}" wx:key="{{index}}">
+    <!--左边  -->
+    <view class="comment_user">
+      <image src="{{item.userIconSrc}}" mode="widthFix"></image>
+    </view>
+
+    <!--右边  -->
+    <view class="comment_info">
+      <view class="comment_detail">
+        <text class="author">{{item.username}}</text>
+        <text class="date">{{item.commentDate}}</text>
+      </view>
+
+      <view class="comment_content">{{item.commentInfo}}</view>
+    </view>
+    </view>
+  </view>
+</view>
+</view>
+</view>
